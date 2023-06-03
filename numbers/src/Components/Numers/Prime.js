@@ -9,6 +9,13 @@ const Prime = () => {
   const numRef = useRef();
   const [msg,setMsg] = useState("");
 
+  const hadleChange = (e)=>{
+      const val =e.target.value;
+      if(val===""){
+        setMsg("");
+      }
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const num = numRef.current.value;
@@ -70,7 +77,7 @@ const Prime = () => {
               <li>
                 <b>Prime Number Theorem:</b> The prime number theorem,
                 formulated by mathematician Jacques Hadamard and Charles Jean de
-                la Vallée-Poussin independently, provides an estimation of the
+                la Vallee-Poussin independently, provides an estimation of the
                 number of primes less than a given value. It states that the
                 number of primes less than or equal to n is approximately
                 n/ln(n), where ln(n) denotes the natural logarithm of n.
@@ -112,6 +119,7 @@ const Prime = () => {
                         placeholder="Enter number"
                         ref={numRef}
                         required
+                        onChange={hadleChange}
                       />
                     </Form.Group>
                     <Button variant="primary" type="submit">

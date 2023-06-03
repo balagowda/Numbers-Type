@@ -1,3 +1,17 @@
 .data-container{
     width: 100%;
 }
+
+*{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.data-detail .data-description ul li{
+    font-weight: 500;
+    font-style: normal;
+}
+
+.data-detail .data-description p{
+    font-size: medium;
+    font-weight: 500;
+}
