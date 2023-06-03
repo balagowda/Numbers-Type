@@ -17,7 +17,7 @@ const Home = () => {
     "Abundant number",
     "Deficient number",
     "Triangular number",
-    "Narcissistic number",
+    "Armstrong number",
     "Transcendental numbers",
     "Cyclic numbers",
     "Coprime numbers",

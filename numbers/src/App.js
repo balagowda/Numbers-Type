@@ -12,13 +12,13 @@ import Deficient from "./Components/Numers/Deficient";
 import Fibonacci from "./Components/Numers/Fibonacci";
 import Figurate from "./Components/Numers/Figurate";
 import Happy from "./Components/Numers/Happy";
-import Narcissistic from "./Components/Numers/Narcissistic";
 import Palindromic from "./Components/Numers/Palindromic";
 import Prime from "./Components/Numers/Prime";
 import Square from "./Components/Numers/Square";
 import Transcendental from "./Components/Numers/Transcendental";
 import Triangular from "./Components/Numers/Triangular";
 import Weird from "./Components/Numers/Weird";
+import Armstrong from "./Components/Numers/Armstrong";
 
 const App = () => {
 
@@ -43,7 +43,7 @@ const App = () => {
       case 'Fibonacci': return <Layout child={<Fibonacci/>}/>
       case 'Figurate': return <Layout child={<Figurate/>}/>
       case 'Happy': return <Layout child={<Happy/>}/>
-      case 'Narcissistic': return <Layout child={<Narcissistic/>}/>
+      case 'Armstrong': return <Layout child={<Armstrong/>}/>
       case 'Palindromic': return <Layout child={<Palindromic/>}/>
       case 'Perfect': return <Layout child={<Perfect/>}/>
       case 'Prime': return <Layout child={<Prime/>}/>

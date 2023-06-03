@@ -4,7 +4,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-const Abundant = () => {
+const Armstrong = () => {
   const numRef = useRef();
   const [msg, setMsg] = useState("");
 
@@ -19,20 +19,24 @@ const Abundant = () => {
     e.preventDefault();
     const num = numRef.current.value;
 
-    function isAbundantNumber(number) {
+    function isArmstrongNumber(number) {
+      let num = number;
       let sum = 0;
-      for (let i = 1; i <= number / 2; i++) {
-        if (number % i === 0) {
-          sum += i;
-        }
+      let numOfDigits = String(number).length;
+    
+      while (num > 0) {
+        let lastDigit = num % 10;
+        sum += Math.pow(lastDigit, numOfDigits);
+        num = Math.floor(num / 10);
       }
-      return sum > number;
+    
+      return sum == number;
     }
 
-    if (isAbundantNumber(num)) {
-      setMsg(`${num} is Abundant Number`);
+    if (isArmstrongNumber(num)) {
+      setMsg(`${num} is Armstrong Number`);
     } else {
-      setMsg(`${num} is Not Abundant Number`);
+      setMsg(`${num} is Not Armstrong Number`);
     }
   };
 
@@ -40,46 +44,44 @@ const Abundant = () => {
     <Container className="shadow">
       <div className="data-container p-3">
         <div className="data-detail">
-          <h2>Abundant number:</h2>
+          <h2>Armstrong number:</h2>
           <h5>
-            An abundant number is a positive integer that is smaller than the
-            sum of its proper divisors. In other words, the sum of the proper
-            divisors (excluding the number itself) is greater than the number
-            itself.
+            A Armstrong number, also known as an number or a Narcissistic number
+            pluperfect digital invariant, is a number that is equal to the sum
+            of its own digits, each raised to the power of the number of digits.
           </h5>
+          <h6>
+            In general, for an n-digit number x, if the sum of the digits of x,
+            each raised to the power of n, equals x itself, then x is a
+            armstrong number.
+          </h6>
           <p>
-            Example. Let's take the number 12. The divisors of 12 are 1, 2, 3,
-            4, 6, and 12. The proper divisors are 1, 2, 3, 4, and 6 (excluding
-            12). If we add up the proper divisors, we get 1 + 2 + 3 + 4 + 6 =
-            16. Since 16 is greater than 12, we say that 12 is an abundant
+            Example. Let's take the number 153. The number of digits in 153 is
+            3. <br />
+            Each digit raised to the power of 3 (the number of digits) is: 1^3 +
+            5^3 + 3^3 = 1 + 125 + 27 = 153 <br />
+            As you can see, the sum of the digits raised to the power of 3 is
+            equal to the original number, 153. Therefore, 153 is a armstrong
             number.
           </p>
           <div className="data-description">
             <br />
             <ul>
+              <li>Armstrong numbers are always positive integers.</li>
+              <li>Armstrong numbers can have varying numbers of digits.</li>
               <li>
-                Abundant numbers are always composite (i.e., not prime), as
-                prime numbers have only two divisors (1 and the number itself),
-                so the sum of their proper divisors is always 1.
+                The smallest armstrong number is 1, as 1 raised to any power
+                is still 1.
               </li>
               <li>
-                The abundance of a number can be measured by the abundance
-                index, which is defined as the ratio of the sum of the proper
-                divisors to the number itself. In the case of 12, the abundance
-                index is 16/12 = 4/3, indicating that the sum of the proper
-                divisors is 4/3 times the number itself.
-              </li>
-              <li>
-                Abundant numbers can be classified further based on the
-                abundance index. If the abundance index is greater than 2, the
-                number is considered highly abundant. If the abundance index is
-                between 1 and 2, it is considered moderately abundant.
+              Armstrong numbers can be found in different number bases. The
+                concept of armstrong numbers is not limited to base 10.
               </li>
             </ul>
           </div>
         </div>
         <div className="data-check">
-          <h3 className="text-center">Abundant Checker</h3>
+          <h3 className="text-center">Armstrong Checker</h3>
           <Container className="d-flex justify-content-center">
             <Card
               style={{ width: "80%" }}
@@ -87,7 +89,7 @@ const Abundant = () => {
             >
               <Card.Body>
                 <Card.Subtitle className="mb-2 text-muted">
-                  Enter the Number to Check The Abundant
+                  Enter the Number to Check The Armstrong
                 </Card.Subtitle>
                 <Card.Text>
                   <Form onSubmit={handleSubmit}>
@@ -115,4 +117,4 @@ const Abundant = () => {
   );
 };
 
-export default Abundant;
+export default Armstrong;
